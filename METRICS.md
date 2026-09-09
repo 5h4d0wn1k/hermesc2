@@ -28,12 +28,27 @@ Baseline captured 2026-09-09.
   sandbox fixtures, beacon channel **acked 10/10**, encryption roundtrip OK,
   killswitch agent rc=0 + session wiped, offline report written.
 
+## Live loopback end-to-end (server start + persistent beacon agent)
+
+- Persistent agent `lab-ops-02`: **502 beacons sent / 502 acked, 0 lost,
+  0 replays** (interval 0.3 s).
+- Channel crypto: 967 seals / 969 opens, 110 KB in / 98 KB out.
+- Multi-stage op plan: 3/3 stages completed over the live channel
+  (`success: true`); the `exec` stage correctly honoured the agent-level
+  dry-run gate (`[DRY-RUN] would run: date`).
+- Killswitch: KILL queued live over ctl; agent unloaded + session wiped
+  within one beacon cycle (`unloaded` result, session status `killed`,
+  agent exit `'killswitch'`).
+- `server start`/`stop`/`status` manage the background listener; `report all`
+  emits JSON + Markdown from the persisted server snapshot.
+
 ## Beacon / channel timing
 
 - Beacon interval: 0.12 s lab default, jittered.
 - Measured channel RTT (demo): **9.651 ms** average (loopback).
-- Ack reliability: 10/10 (100%) during demo; 0 dropped frames in the suite's
-  loss-replay test across a hard server restart.
+- Sustained live-session RTT (post-stop snapshot): **1.352 ms** average,
+  rtt_avg over 502-ack session; 0 dropped frames in the suite's loss-replay
+  test across a hard server restart.
 
 ## Speed
 

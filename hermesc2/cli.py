@@ -113,8 +113,9 @@ def _cmd_server_start(args: argparse.Namespace) -> int:
     log = state / "server.log"
     ensure_passphrase(cfg)
     cmd = [
-        sys.executable, "-m", "hermesc2", "server", "run",
+        sys.executable, "-m", "hermesc2",
         "--config", str(args.config),
+        "server", "run",
     ]
     if args.port:
         cmd += ["--port", str(args.port)]

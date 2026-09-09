@@ -11,4 +11,5 @@ dist/
 .env
 state/
 c2_data/lab_captures/
+c2_data/lab_payloads/
 c2_data/lab_fixture/from_controller.txt
