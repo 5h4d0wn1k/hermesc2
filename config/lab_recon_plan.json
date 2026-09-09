@@ -1,0 +1,31 @@
+{
+  "version": "1.0",
+  "name": "lab-recon-info",
+  "target": "lab-node-01",
+  "scope": ["127.0.0.1", "lab-node-01"],
+  "stages": [
+    {
+      "id": "recon",
+      "task": {
+        "type": "info",
+        "params": {}
+      }
+    },
+    {
+      "id": "exec-info",
+      "task": {
+        "type": "exec",
+        "params": {
+          "command": "date"
+        }
+      }
+    },
+    {
+      "id": "result",
+      "task": {
+        "type": "info",
+        "params": {}
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hermesc2"
+version = "1.0.0"
+description = "Hermes C2 & post-exploitation framework (LAB-SCOPED, loopback-only). Authorized security-testing education tool."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+authors = [{ name = "5h4d0wn1k", email = "5h4d0wn1k@users.noreply.github.com" }]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Security",
+    "Intended Audience :: Education",
+]
+dependencies = [
+    "cryptography>=42.0",
+    "PyYAML>=6.0",
+]
+
+[project.scripts]
+hermesc2 = "hermesc2.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["hermesc2*"]
+
+[tool.setuptools.package-data]
+hermesc2 = ["sample_agent.py", "*.yaml", "*.json"]
