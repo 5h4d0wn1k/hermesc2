@@ -133,17 +133,17 @@ class RegistryTest(HermesTestCase):
         finally:
             s.stop()
 
-def test_sweep_times_out_stale_sessions(self) -> None:
-    s = self.server()
-    try:
-        s.registry.register("lab-stale-01", {})
-        sess = s.registry.get("lab-stale-01")
-        sess.last_seen = time.time() - 10  # stale: last beacon long ago
-        expired = s.registry.sweep(0.0001)
-        self.assertIn("lab-stale-01", expired)
-        self.assertIsNone(s.registry.get("lab-stale-01"))
-    finally:
-        s.stop()
+    def test_sweep_times_out_stale_sessions(self) -> None:
+        s = self.server()
+        try:
+            s.registry.register("lab-stale-01", {})
+            sess = s.registry.get("lab-stale-01")
+            sess.last_seen = time.time() - 10  # stale: last beacon long ago
+            expired = s.registry.sweep(0.0001)
+            self.assertIn("lab-stale-01", expired)
+            self.assertIsNone(s.registry.get("lab-stale-01"))
+        finally:
+            s.stop()
 
 
 class CtrlClientTest(HermesTestCase):
