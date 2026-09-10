@@ -1,4 +1,5 @@
 # hermesc2
+![tests](https://github.com/5h4d0wn1k/hermesc2/actions/workflows/ci.yml/badge.svg) ![MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
 C2 & post-exploitation framework (LAB) - listener/stager/beacon, encrypted transport, payload gen, multi-stage, killswitch
 
@@ -95,3 +96,6 @@ The metrics below are re-measured after every feature change (see `METRICS.md`).
 See `METRICS.md` for measured values (test counts, suite time, beacon RTT,
 loss-replay reliability, demo proof lines). Baseline numbers are captured from the
 committed state and updated whenever the test suite or demo behaviour changes.
+
+## Contributing
+See [CONTRIBUTING.md](CONTRIBUTING.md).
